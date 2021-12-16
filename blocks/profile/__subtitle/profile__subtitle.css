@@ -6,9 +6,14 @@
   color: #ffffff;
   margin-top: 16px;
   margin-bottom: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 336px;
+  width: 100%;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 703px) {
   .profile__subtitle {
     line-height: 16.94px;
     font-size: 14px;

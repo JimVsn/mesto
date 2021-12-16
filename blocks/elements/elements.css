@@ -7,3 +7,11 @@
   grid-template-rows: auto;
   gap: 17px;
 }
+
+@media screen and (max-width: 900px) {
+  .elements {
+    margin-right: 19px;
+    margin-left: 19px;
+    margin-top: 36px;
+  }
+}
