@@ -8,7 +8,6 @@ let popupAboute = document.querySelector('.popup__aboute');
 let profileTitle = document.querySelector('.profile__title');
 let profileSubtitle = document.querySelector('.profile__subtitle');
 
-
 function openPopup () {
   popup.classList.add('popup_opened');
   popupName.value = profileTitle.textContent;
