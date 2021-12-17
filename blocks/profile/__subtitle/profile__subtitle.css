@@ -17,5 +17,6 @@
   .profile__subtitle {
     line-height: 16.94px;
     font-size: 14px;
+    text-align: center;
   }
 }
