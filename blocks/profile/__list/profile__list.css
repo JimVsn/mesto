@@ -1,5 +1,15 @@
 .profile__list {
   width: 336px;
   display: flex;
+  
 }
 
+@media screen and (max-width: 703px) {
+  .profile__list {
+    padding-right: 21px;
+  }
+
+  .profile__list:last-child {
+    padding-right: 0;
+  }  
+}

@@ -1,10 +1,20 @@
 .popup__aboute {
+  font-family: "Inter", "Arials", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
   max-width: 358px;
   width: 100%;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0;
-  min-height: 27px;
-  background-color: #F6F6F6;
+  padding: 0 0 13px;
+  background-color: #FFFFFF;
   outline: none;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 565px) {
+  .popup__aboute {
+    padding-bottom: 10px;
+  }
 }

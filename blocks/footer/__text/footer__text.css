@@ -6,3 +6,10 @@
   line-height: 21.78px;
   margin: 0;
 }
+
+@media screen and (max-width:703px) {
+  .footer__text {
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+}
