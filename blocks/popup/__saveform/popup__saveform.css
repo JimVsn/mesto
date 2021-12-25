@@ -1,9 +1,0 @@
-.popup__saveform {
-  margin-left: 36px;
-}
-
-@media screen and (max-width: 565px) {
-  .popup__saveform {
-    margin-left: 22px;
-    }
-  }

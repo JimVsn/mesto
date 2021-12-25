@@ -8,8 +8,4 @@
     padding-right: 21px;
     max-width: 282px;
   }
-
-  .profile__list:last-child {
-    padding-right: 0;
-  }  
 }
