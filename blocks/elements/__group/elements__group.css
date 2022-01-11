@@ -11,11 +11,7 @@
 
 .elements__group:hover {
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.5;
   transition: 0.3s;
 }
 
-.elements__group:active {
-  background-image: url(../../../images/Like-active.svg);
-  opacity: 100%;
-}

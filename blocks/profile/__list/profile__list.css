@@ -1,9 +1,11 @@
 .profile__list {
-  width: 300px;
+  width: 336px;
+  display: flex;
 }
 
 @media screen and (max-width: 703px) {
   .profile__list {
-    width: 189px;
-  } 
+    padding-right: 21px;
+    max-width: 282px;
+  }
 }
