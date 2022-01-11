@@ -2,72 +2,74 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mesto</title>
-  <link rel="stylesheet" href="pages/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css">
 </head>
 
 <body class="body">
-  <div class="page">
-    <header class="header">
-      <img src="images/HeaderLogo.svg" class="header__logo" alt="Логотип заголовка">
-    </header>
-    <main class="content">
-      <section class="profile">
-        <img src="images/Kousto.jpg" class="profile__avatar" alt="Аватар">
-        <div class="profile__content">
-          <div class="profile__info">
-            <div class="profile__list">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button type="button" class="profile__edit-button">
+    <div class="page">
+        <header class="header">
+            <img src="images/HeaderLogo.svg" class="header__logo" alt="Логотип заголовка">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img src="images/Kousto.jpg" class="profile__avatar" alt="Аватар">
+                <div class="profile__content">
+                    <div class="profile__info">
+                        <div class="profile__list">
+                            <h1 class="profile__title">Жак-Ив Кусто</h1>
+                            <button type="button" class="profile__edit-button">
                 <img class="profile__button-image" src="images/Edit-button.svg" alt="кнопка редактирования">
               </button>
-            </div>
-            <p class="profile__subtitle">Исследователь океана</p>
-          </div>
-          <button class="profile__add-button">
+                        </div>
+                        <p class="profile__subtitle">Исследователь океана</p>
+                    </div>
+                    <button class="profile__add-button">
             <img class="profile__add-image" src="images/Add-button.svg" alt="кнопка добавления">
           </button>
+                </div>
+            </section>
+            <section class="elements">
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">© 2020 Mesto Russia</p>
+        </footer>
+    </div>
+
+    <div class="popup popup_type_image">
+      <div class="popup__image-container">
+        <button class="popup__image-close"><img src="images/CloseIcon.svg" class="popup__close-icon"
+          alt="Кнопка закрытия"></button>
+        <img class="popup__image" src="..." alt="фото модальное окно">
+        <h2 class="popup__image-title"></h2>
+      </div>
+    </div>
+
+
+
+    <div class="popup popup_type_edit">
+      <div class="popup__box">
+        <button type="button" class="popup__close"><img src="images/CloseIcon.svg" class="popup__close-icon"
+          alt="Кнопка закрытия"></button>
         </div>
-      </section>
-      <section class="elements">
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__text">© 2020 Mesto Russia</p>
-    </footer>
-  </div>
+        <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form name="profile" class="popup__profile">
+            <input name="name" type="text" class="popup__input popup__input_mod_name">
+            <input name="bio" type="text" class="popup__input popup__input_mod_aboute">
+            <button type="submit" class="popup__save">Сохранить</button>
+          </form>
+      </div>
+    </div>
 
-  <div class="popup popup_type_image">
-    <div class="popup__image-container">
-      <button class="popup__image-close"><img src="images/CloseIcon.svg" class="popup__close-icon"
+    <div class="popup popup_type_edit-card">
+      <div class="popup__box">
+        <button type="button" class="popup__close"><img src="images/CloseIcon.svg" class="popup__close-icon"
           alt="Кнопка закрытия"></button>
-      <img class="popup__image" src="" alt="фото модальное окно">
-      <h2 class="popup__image-title"></h2>
-    </div>
-  </div>
-
-  <div class="popup popup_type_edit">
-    <div class="popup__box">
-      <button type="button" class="popup__close"><img src="images/CloseIcon.svg" class="popup__close-icon"
-          alt="Кнопка закрытия"></button>
-    </div>
-    <div class="popup__container">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="profile" class="popup__profile">
-        <input name="name" type="text" class="popup__input popup__input_mod_name">
-        <input name="bio" type="text" class="popup__input popup__input_mod_aboute">
-        <button type="submit" class="popup__save">Сохранить</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="popup popup_type_edit-card">
-    <div class="popup__box">
-      <button type="button" class="popup__close"><img src="images/CloseIcon.svg" class="popup__close-icon"
-          alt="Кнопка закрытия"></button>
-    </div>
+      </div>
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
       <form name="profile" class="popup__profile">
@@ -76,14 +78,12 @@
         <button type="submit" class="popup__save">Сохранить</button>
       </form>
     </div>
-
-
-
+    </div>
 
     <template class="card-template">
       <div class="elements__rectangle card">
         <button type="button" class="elements__delete-button"></button>
-        <img class="elements__element" src="" alt="фото карточка">
+        <img class="elements__element" src="..." alt="фото карточка">
         <div class="elements__container">
           <h2 class="elements__text"></h2>
           <button type="button" class="elements__group"></button>
