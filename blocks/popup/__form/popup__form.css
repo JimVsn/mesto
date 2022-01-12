@@ -1,4 +1,4 @@
-.popup__profile {
+.popup__form {
   border: none;
   max-width: 358px;
   display: flex;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 565px) {
-  .popup__profile {
+  .popup__form {
     margin-left: 22px;
   }
 }
