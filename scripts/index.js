@@ -129,3 +129,31 @@ imageCloseButton.addEventListener('click', () => {
   closePopup(popupTypeImage)
 })
 
+popupTypeImage.addEventListener('click', (event) => {
+  if ( event.target === event.currentTarget) {
+    closePopup (popupTypeImage)
+};
+});
+
+document.addEventListener('keyup', (event) => {
+  if( event.code === 'Escape' ) {
+  closePopup (popupTypeImage);
+  closePopup (profilePopup);
+  closePopup (popupEditCard);
+  }
+});
+
+profilePopup.addEventListener('click', (event) => {
+  if ( event.target === event.currentTarget) {
+  closePopup (profilePopup)
+  };
+});
+
+popupEditCard.addEventListener('click', (event) => {
+  if ( event.target === event.currentTarget) {
+  closePopup (popupEditCard)
+  };
+});
+  
+  
+

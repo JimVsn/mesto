@@ -55,9 +55,11 @@
       <button type="button" class="popup__close"><img src="images/CloseIcon.svg" class="popup__close-icon"
           alt="Кнопка закрытия"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="formEdit" class="popup__form">
-        <input name="name" type="text" class="popup__input popup__input_mod_name">
-        <input name="bio" type="text" class="popup__input popup__input_mod_aboute">
+      <form name="formEdit" class="popup__form" novalidate>
+        <input id="name" name="name" type="text" class="popup__input popup__input_mod_name" required autocomplete="off" minlength="2" maxlength="40">
+        <span id="error-name" class="error-message error-message_visible"></span>
+        <input id="bio" name="bio" type="text" class="popup__input popup__input_mod_aboute" required autocomplete="off" minlength="2" maxlength="200">
+        <span id="error-bio" class="error-message error-message_visible"></span>
         <button type="submit" class="popup__save">Сохранить</button>
       </form>
     </div>
@@ -69,8 +71,10 @@
           alt="Кнопка закрытия"></button>
       <h2 class="popup__title">Новое место</h2>
       <form name="formCard" class="popup__form">
-        <input name="name" type="text" class="popup__input popup__input_mod_card-name" placeholder="Название">
-        <input name="link" type="text" class="popup__input popup__input_mod_card-link" placeholder="Ссылка на картинку">
+        <input id="title" name="name" type="text" class="popup__input popup__input_mod_card-name" placeholder="Название" required autocomplete="off" minlength="2" maxlength="30">
+        <span id="error-title" class="error-message error-message_visible"></span>
+        <input id="link" name="link" type="url" class="popup__input popup__input_mod_card-link" placeholder="Ссылка на картинку" required autocomplete="off">
+        <span id="error-link" class="error-message error-message_visible"></span>
         <button type="submit" class="popup__save">Сохранить</button>
       </form>
     </div>
@@ -87,6 +91,7 @@
     </div>
   </template>
   <script src="scripts/index.js"></script>
+  <script src="scripts/validate.js"></script>
 </body>
 
 </html>
