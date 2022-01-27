@@ -108,10 +108,8 @@ function handleProfileFormSubmit (evt) {
 }
 
 function popupCloseOverlay (event) {
-  if (event.target) {
-    closePopup (popupTypeImage);
-    closePopup (profilePopup);
-    closePopup (popupEditCard);
+  if (event.target === event.currentTarget) {
+    closePopup (event.target);
   }
 }
 
