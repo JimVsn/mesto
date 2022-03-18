@@ -1,3 +1,5 @@
+import { FormValidator } from  "./FormValidator.js"
+
 const profilePopup = document.querySelector('.popup_type_edit');
 const profileOpenButton = document.querySelector('.profile__edit-button');
 const profileCloseButton = profilePopup.querySelector('.popup__close');
