@@ -1,4 +1,4 @@
-import { openPopup } from "./utils.js"
+import { openPopup, popupCloseEscape, closePopup } from "./utils.js"
 import { popupTypeImage, popupImage, imageTitle } from "./index.js"
 
 export class Card {
@@ -9,10 +9,10 @@ export class Card {
 
   _handleLikeIcon = () => {
     this._likeButton.classList.toggle('elements__group_active')
-  };
+  }
 
-  _deleteHandler = () => {
-    this._cardElement.remove();
+  _deleteHandler = (evt) => {
+    evt.target.closest('.elements__rectangle').remove()
   }
 
   _handlePreviewPicture = () => {
@@ -23,8 +23,8 @@ export class Card {
   }
 
   _setEventListeners() {
-    cardImage.addEventListener('click', this._handlePreviewPicture)
-    deleteButton.addEventListener('click', this._deleteHandler);
+    this._cardImage.addEventListener('click', this._handlePreviewPicture)
+    this._deleteButton.addEventListener('click', this._deleteHandler);
     this._likeButton.addEventListener('click', this._handleLikeIcon)
   }
 
@@ -45,11 +45,3 @@ export class Card {
   }
 }
 
-
-
-
-
-
-
-
-// list.prepend(cardElement)

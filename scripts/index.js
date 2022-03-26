@@ -1,5 +1,5 @@
 import { FormValidator } from  "./FormValidator.js";
-import { openPopup } from "./utils.js";
+import { openPopup, popupCloseEscape, closePopup } from "./utils.js";
 import { Card } from "./Card.js";
 
 const profilePopup = document.querySelector('.popup_type_edit');
@@ -22,7 +22,6 @@ const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const cardList = document.querySelector('.elements');
 const cardTemplateSelector = '.card-template';
-const cardTempate = document.querySelector('.card-template').content;
 const initialCards = [
   {
     name: 'Архыз',
@@ -66,61 +65,13 @@ editCardFormValidator.enableValidation();
 const editFormValidator = new FormValidator(config, profileForm);
 editFormValidator.enableValidation();
 
-// function deleteHandler (evt) {
-//   evt.target.closest('.elements__rectangle').remove();
-// }
-
-
-// function getCard (item) {
-//   const cardElement = cardTempate.cloneNode(true);
-//   const cardImage = cardElement.querySelector('.elements__element');
-//   const cardText = cardElement.querySelector('.elements__text');
-//   const deleteButton = cardElement.querySelector('.elements__delete-button');
-//   const likeButton = cardElement.querySelector('.elements__group');
-  
-//   cardImage.src = item.link
-//   cardText.textContent = item.name
-//   cardImage.alt = cardText.textContent
-
-//   cardImage.addEventListener('click', () => {
-//     openPopup(popupTypeImage)
-//     popupImage.src = item.link
-//     imageTitle.textContent = item.name
-//     popupImage.alt = cardText.textContent
-//   })
-  
-//   deleteButton.addEventListener('click', deleteHandler);
-//   likeButton.addEventListener('click', () => {
-//     likeButton.classList.toggle('elements__group_active')
-    
-//   });
-//     return cardElement;
-// }
-
 initialCards.forEach(createCard);
 
 
-function createCard (cardData) {
-  // const cardElement = getCard(cardData)
+function createCard (item) {
   const card = new Card (item , cardTemplateSelector)
   const cardElement = card.getCard()
   cardList.prepend(cardElement);
-}
-
-function popupCloseEscape (event) {
-  if( event.code === 'Escape' ) {
-    closePopup (document.querySelector('.popup_opened'));
-  }
-}
-
-// function openPopup(popup){
-//   popup.classList.add('popup_opened');
-//   document.addEventListener('keydown', popupCloseEscape);
-// }
-
-function closePopup(popup){
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', popupCloseEscape);
 }
 
 function handleProfileFormSubmit (evt) {
