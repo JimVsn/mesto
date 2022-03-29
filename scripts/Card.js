@@ -11,20 +11,21 @@ export class Card {
     this._likeButton.classList.toggle('elements__group_active')
   }
 
-  _deleteHandler = (evt) => {
-    evt.target.closest('.elements__rectangle').remove()
+  _deleteHandler () {
+    this._elementsRectangle.remove() //если сюда написать this._cardElement.remove() то консоль выдает ошибку
+    this._elementsRectangle = null
   }
-
+  
   _handlePreviewPicture = () => {
-    openPopup(popupTypeImage)
     popupImage.src = this._item.link
     imageTitle.textContent = this._item.name
     popupImage.alt = this._cardText.textContent
+    openPopup(popupTypeImage)
   }
 
   _setEventListeners() {
     this._cardImage.addEventListener('click', this._handlePreviewPicture)
-    this._deleteButton.addEventListener('click', this._deleteHandler);
+    this._deleteButton.addEventListener('click', () => this._deleteHandler());
     this._likeButton.addEventListener('click', this._handleLikeIcon)
   }
 
@@ -34,6 +35,8 @@ export class Card {
     this._cardText = this._cardElement.querySelector('.elements__text');
     this._deleteButton = this._cardElement.querySelector('.elements__delete-button');
     this._likeButton = this._cardElement.querySelector('.elements__group');
+    this._elementsRectangle = this._cardElement.querySelector('.elements__rectangle');
+    
     
     this._cardImage.src = this._item.link
     this._cardText.textContent = this._item.name

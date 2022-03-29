@@ -72,6 +72,7 @@ export class FormValidator {
       });
 
       this._setEventListeners();
+      this._toggleButton();
    }
 
    _setEventListeners() {

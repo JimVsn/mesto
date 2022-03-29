@@ -1,3 +1,5 @@
 .error-message {
   opacity: 0;
+  display: block;
+  height: 40px;
 }

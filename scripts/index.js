@@ -6,10 +6,10 @@ const profilePopup = document.querySelector('.popup_type_edit');
 const profileOpenButton = document.querySelector('.profile__edit-button');
 const profileCloseButton = profilePopup.querySelector('.popup__close');
 const popupEditCard = document.querySelector('.popup_type_edit-card');
-const editCardButton = document.querySelector('.profile__add-button');
-const editCardCloseButton = popupEditCard.querySelector('.popup__close');
+const cardEditButton = document.querySelector('.profile__add-button');
+const cardEditCloseButton = popupEditCard.querySelector('.popup__close');
 const profileForm = profilePopup.querySelector('.popup__form');
-const editCardForm = popupEditCard.querySelector('.popup__form');
+const cardEditForm = popupEditCard.querySelector('.popup__form');
 const inputName = document.querySelector('.popup__input_mod_card-name');
 const inputLink = document.querySelector('.popup__input_mod_card-link');
 export const popupTypeImage = document.querySelector('.popup_type_image');
@@ -59,20 +59,31 @@ const config = {
   inactiveButtonClass: 'popup__save_disabled'
 }
 
-const editCardFormValidator = new FormValidator(config, editCardForm);
-editCardFormValidator.enableValidation();
+const cardEditFormValidator = new FormValidator(config, cardEditForm);
+cardEditFormValidator.enableValidation();
 
-const editFormValidator = new FormValidator(config, profileForm);
-editFormValidator.enableValidation();
+const formEditValidator = new FormValidator(config, profileForm);
+formEditValidator.enableValidation();
 
-initialCards.forEach(createCard);
 
 
 function createCard (item) {
   const card = new Card (item , cardTemplateSelector)
-  const cardElement = card.getCard()
-  cardList.prepend(cardElement);
+  return card.getCard()
+  
 }
+
+
+function renderCard (item, wrap) {
+  const card = createCard(item)
+  wrap.prepend(card)
+}
+initialCards.forEach((item) => {
+  renderCard(item, cardList)
+})
+
+
+
 
 function handleProfileFormSubmit (evt) {
   evt.preventDefault();
@@ -87,7 +98,7 @@ function popupCloseOverlay (event) {
   }
 }
 
-editCardForm.addEventListener('submit', (evt) => {
+cardEditForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const nameValue = inputName.value;
   const linkValue = inputLink.value;
@@ -96,17 +107,20 @@ editCardForm.addEventListener('submit', (evt) => {
     link: linkValue
   };
   createCard (objct);
-  editCardForm.reset();
   closePopup (popupEditCard);
+  cardEditForm.reset();
 })
 
-editCardButton.addEventListener('click', () => openPopup (popupEditCard));
-editCardCloseButton.addEventListener('click', () => closePopup (popupEditCard));
+cardEditButton.addEventListener('click', () => {
+  openPopup (popupEditCard)
+  cardEditFormValidator.resetValidation()
+});
+cardEditCloseButton.addEventListener('click', () => closePopup (popupEditCard));
 
 profileOpenButton.addEventListener('click', () => {
-  openPopup (profilePopup);
   popupName.value = profileTitle.textContent;
   popupAboute.value = profileSubtitle.textContent;
+  openPopup (profilePopup);
 });
 profileCloseButton.addEventListener('click', () => closePopup (profilePopup));
 
