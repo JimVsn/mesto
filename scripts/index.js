@@ -78,11 +78,11 @@ function renderCard (item, wrap) {
   const card = createCard(item)
   wrap.prepend(card)
 }
+
+
 initialCards.forEach((item) => {
   renderCard(item, cardList)
 })
-
-
 
 
 function handleProfileFormSubmit (evt) {
@@ -107,7 +107,9 @@ cardEditForm.addEventListener('submit', (evt) => {
     link: linkValue
   };
   createCard (objct);
+  renderCard (objct, cardList)
   closePopup (popupEditCard);
+  
   cardEditForm.reset();
 })
 
