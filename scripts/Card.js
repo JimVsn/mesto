@@ -12,8 +12,8 @@ export class Card {
   }
 
   _deleteHandler () {
-    this._elementsRectangle.remove() //если сюда написать this._cardElement.remove() то консоль выдает ошибку
-    this._elementsRectangle = null
+    this._cardElement.remove() 
+    this._cardElement = null
   }
   
   _handlePreviewPicture = () => {
@@ -30,12 +30,11 @@ export class Card {
   }
 
   getCard = () => {
-    this._cardElement = this._template.cloneNode(true);
+    this._cardElement = this._template.querySelector('.elements__rectangle').cloneNode(true);
     this._cardImage = this._cardElement.querySelector('.elements__element');
     this._cardText = this._cardElement.querySelector('.elements__text');
     this._deleteButton = this._cardElement.querySelector('.elements__delete-button');
     this._likeButton = this._cardElement.querySelector('.elements__group');
-    this._elementsRectangle = this._cardElement.querySelector('.elements__rectangle');
     
     
     this._cardImage.src = this._item.link

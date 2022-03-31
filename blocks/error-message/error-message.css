@@ -2,4 +2,7 @@
   opacity: 0;
   display: block;
   height: 40px;
+  padding-top: 5px;
+  border: none;
 }
+
