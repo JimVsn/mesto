@@ -1,10 +1,8 @@
-import { openPopup, popupCloseEscape, closePopup } from "./utils.js"
-import { popupTypeImage, popupImage, imageTitle } from "./index.js"
-
-export class Card {
-  constructor (item, cardTemplateSelector) {
+export class Card  {
+  constructor ({item, handleCardClick},  cardTemplateSelector) {
     this._item = item;
     this._template = document.querySelector(cardTemplateSelector).content;
+    this._handleCardClick = handleCardClick;
   }
 
   _handleLikeIcon = () => {
@@ -14,19 +12,6 @@ export class Card {
   _deleteHandler () {
     this._cardElement.remove() 
     this._cardElement = null
-  }
-  
-  _handlePreviewPicture = () => {
-    popupImage.src = this._item.link
-    imageTitle.textContent = this._item.name
-    popupImage.alt = this._cardText.textContent
-    openPopup(popupTypeImage)
-  }
-
-  _setEventListeners() {
-    this._cardImage.addEventListener('click', this._handlePreviewPicture)
-    this._deleteButton.addEventListener('click', () => this._deleteHandler());
-    this._likeButton.addEventListener('click', this._handleLikeIcon)
   }
 
   getCard = () => {
@@ -44,6 +29,16 @@ export class Card {
   this._setEventListeners()
     
       return this._cardElement;
+  }
+
+
+  _setEventListeners() {
+    this._cardImage.addEventListener('click', () => this._handleCardClick({
+      name: this._item.name,
+      src: this._item.link,
+    }));
+    this._deleteButton.addEventListener('click', () => this._deleteHandler());
+    this._likeButton.addEventListener('click', this._handleLikeIcon)
   }
 }
 
