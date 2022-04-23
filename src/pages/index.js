@@ -65,19 +65,14 @@ const userInfo = new UserInfo({ nameElementSelector, infoElementSelector });
 
 const newPopupWithForm = new PopupWithForm(popupEditCardSelector, {
   handleSubmitForm: (item) => {
-    
-    defaultCardList.addItem(item);
+    defaultCardList.addItem(createCard(item));
   },
 });
 newPopupWithForm.setEventListeners();
 
 const newProfileForm = new PopupWithForm(profilePopupSelector, {
-  handleSubmitForm: () => {
-    const profileUserInfo = {
-      name: inputProfileName.value,
-      info: inputProfileInfo.value,
-    };
-    userInfo.setUserInfo(profileUserInfo);
+  handleSubmitForm: (item) => {
+    userInfo.setUserInfo(item);
   },
 });
 
@@ -87,12 +82,11 @@ cardEditButton.addEventListener("click", () => {
   newPopupWithForm.open();
   cardEditFormValidator.resetValidation();
 });
-cardEditCloseButton.addEventListener("click", () => newPopupWithForm.close());
 
 profileOpenButton.addEventListener("click", () => {
-  const { name, info } = userInfo.getUserInfo();
+  const { name, bio } = userInfo.getUserInfo();
   inputProfileName.value = name;
-  inputProfileInfo.value = info;
+  inputProfileInfo.value = bio;
   newProfileForm.open();
 });
 
