@@ -64,11 +64,8 @@ defaultCardList.renderItems();
 const userInfo = new UserInfo({ nameElementSelector, infoElementSelector });
 
 const newPopupWithForm = new PopupWithForm(popupEditCardSelector, {
-  handleSubmitForm: () => {
-    const item = createCard({
-      name: inputName.value, // Абсолютно не понял что вы имеете в виду и как еще можно передать данные инпутов в функцию создания новой карточки
-      link: inputLink.value,
-    });
+  handleSubmitForm: (item) => {
+    
     defaultCardList.addItem(item);
   },
 });
