@@ -113,7 +113,6 @@ const popupAvatarEdit = new PopupWithForm(popupAvatarEditSelector, newValues => 
   api.handleUserAvatar(newValues)
     .then((data) => {
       userInfo.setUserAvatar(data)
-      popupAvatarEditFromValidator.disableSubmitButton()
       popupAvatarEdit.close()
     })
     .catch((err) => console.log(err))
@@ -122,6 +121,7 @@ const popupAvatarEdit = new PopupWithForm(popupAvatarEditSelector, newValues => 
 popupAvatarEdit.setEventListeners()
 
 avatarEditButton.addEventListener('click', _ => {
+  popupAvatarEditFromValidator.disableSubmitButton()
   popupAvatarEditFromValidator.removeErrors()
   popupAvatarEdit.open()
 })
@@ -133,7 +133,6 @@ const popupFormCardAdd = new PopupWithForm(popupCardAddSelector, newValues => {
       const card = createCard(data)
       const cardElement = card.renderCard()
       cardList.addItem(cardElement)
-      cardAddFormValidator.disableSubmitButton()
       popupFormCardAdd.close()
     })
     .catch((err) => console.log(err))
@@ -154,6 +153,7 @@ const popupFormProfilEdit = new PopupWithForm(popupProfileEditSelector, newValue
 popupFormProfilEdit.setEventListeners()
 
 modalAddFormButtonOpen.addEventListener('click', _ => {
+  cardAddFormValidator.disableSubmitButton()
   cardAddFormValidator.removeErrors()
   popupFormCardAdd.renderLoading(false)
   popupFormCardAdd.open()

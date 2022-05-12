@@ -19,6 +19,7 @@ export default class Card {
     this._id = data._id;
     this._ownerId = data.owner._id;
     this._userId = userId;
+
   }
 
   _getCardTemplate() {
@@ -77,15 +78,15 @@ export default class Card {
   }
 
   handleLikeCard() {
-    const likeButton = this._view.querySelector(".elements__like-button");
-    const likeCount = this._view.querySelector(".elements__like-count");
+    this._likeButton = this._view.querySelector(".elements__like-button");
+    this._likeCount = this._view.querySelector(".elements__like-count");
 
-    if (!likeButton.classList.contains("elements__like-button_active")) {
+    if (!this._likeButton.classList.contains("elements__like-button_active")) {
       this._api
         .like(this._id)
         .then((data) => {
-          likeButton.classList.add("elements__like-button_active");
-          likeCount.textContent = data.likes.length;
+          this._likeButton.classList.add("elements__like-button_active");
+          this._likeCount.textContent = data.likes.length;
         })
         .catch((err) => {
           console.log(err);
@@ -94,8 +95,8 @@ export default class Card {
       this._api
         .dislike(this._id)
         .then((data) => {
-          likeButton.classList.remove("elements__like-button_active");
-          likeCount.textContent = data.likes.length;
+          this._likeButton.classList.remove("elements__like-button_active");
+          this._likeCount.textContent = data.likes.length;
         })
         .catch((err) => {
           console.log(err);
