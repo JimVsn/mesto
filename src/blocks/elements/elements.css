@@ -1,20 +1,21 @@
 .elements {
-  max-width: 880px;
-  min-width: 282px;
-  margin: 46.25px auto 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-  grid-template-rows: auto;
-  gap: 17px;
+  grid-template-columns: repeat(auto-fit,282px);
+  justify-content: center;
+  gap: 20px 17px;
+  padding: 50px 0 66px 0;
+  margin: 0 auto;
+  max-width: 880px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 915px) {
   .elements {
-    margin-right: 19px;
-    margin-left: 19px;
-    margin-top: 36px;
-    gap: 20px;
+    width: 88%;
   }
+}
 
-  
+@media screen and (max-width: 620px) {
+  .elements {
+    padding: 36px 0 48px 0;
+  }
 }
