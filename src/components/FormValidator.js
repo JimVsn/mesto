@@ -51,7 +51,6 @@ export default class FormValidator {
       this.disableSubmitButton();
     } else {
       this.enableSubmitButton()
-      this._buttonElement.disabled = false;
     }
   }
 

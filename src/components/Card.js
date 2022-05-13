@@ -19,7 +19,6 @@ export default class Card {
     this._id = data._id;
     this._ownerId = data.owner._id;
     this._userId = userId;
-
   }
 
   _getCardTemplate() {
@@ -27,18 +26,19 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".elements__card")
       .cloneNode(true);
+
+    this._likeButton = this._view.querySelector(".elements__like-button");
+    this._likeCount = this._view.querySelector(".elements__like-count");
   }
 
   renderCard() {
     this._getCardTemplate();
-    this._setEventListeners();
     this._cardImage = this._view.querySelector(".elements__image");
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._view.querySelector(".elements__title").textContent = this._name;
 
-    this._view.querySelector(".elements__like-count").textContent =
-      this._likes.length;
+    this._likeCount.textContent = this._likes.length;
 
     if (!(this._ownerId === this._userId)) {
       this._view.querySelector(".elements__remove-button").style.display =
@@ -46,20 +46,16 @@ export default class Card {
     }
 
     if (this._likes.find((obj) => this._userId === obj._id)) {
-      this._view
-        .querySelector(".elements__like-button")
-        .classList.add("elements__like-button_active");
+      this._likeButton.classList.add("elements__like-button_active");
     }
-
+    this._setEventListeners();
     return this._view;
   }
 
   _setEventListeners() {
-    this._view
-      .querySelector(".elements__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeClick();
-      });
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeClick();
+    });
 
     this._view
       .querySelector(".elements__remove-button")
@@ -67,8 +63,7 @@ export default class Card {
         this._handleConfirmDelete();
       });
 
-    this._view
-      .querySelector(".elements__image")
+      this._cardImage
       .addEventListener("click", () => {
         this._handleCardClick({
           name: this._name,
@@ -78,9 +73,6 @@ export default class Card {
   }
 
   handleLikeCard() {
-    this._likeButton = this._view.querySelector(".elements__like-button");
-    this._likeCount = this._view.querySelector(".elements__like-count");
-
     if (!this._likeButton.classList.contains("elements__like-button_active")) {
       this._api
         .like(this._id)

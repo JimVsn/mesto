@@ -136,7 +136,7 @@ const popupFormCardAdd = new PopupWithForm(popupCardAddSelector, newValues => {
       popupFormCardAdd.close()
     })
     .catch((err) => console.log(err))
-    .finally( _ => popupFormCardAdd.renderLoading(true))
+    .finally( _ => popupFormCardAdd.renderLoading(false))
 })
 popupFormCardAdd.setEventListeners()
 
@@ -155,7 +155,6 @@ popupFormProfilEdit.setEventListeners()
 modalAddFormButtonOpen.addEventListener('click', _ => {
   cardAddFormValidator.disableSubmitButton()
   cardAddFormValidator.removeErrors()
-  popupFormCardAdd.renderLoading(false)
   popupFormCardAdd.open()
 })
 
